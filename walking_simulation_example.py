@@ -21,7 +21,7 @@ import walkGenerator
 # motor parameters
 motor_kp = 0.5
 motor_kd = 0.5
-motor_torque = 1.5
+motor_torque = 20
 motor_max_velocity = 5.0
 
 # physics parameters
@@ -44,6 +44,10 @@ robotID = p.loadURDF(os.path.abspath(os.path.dirname(__file__)) + '/humanoid_leg
 
 motorsController = motorController.MotorController(robotID, physicsClient, fixedTimeStep, motor_kp, motor_kd, motor_torque, motor_max_velocity)
 print(motorsController.getRevoluteJoint_nameToId())
+
+# %%
+motorController.MotorController()
+
 
 walk = walkGenerator.WalkGenerator()
 walk.setWalkParameter(bodyMovePoint=8,
@@ -195,3 +199,6 @@ while (1):
             rightStep = True
     else:
         p.stepSimulation()
+
+
+# %%
