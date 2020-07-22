@@ -147,58 +147,58 @@ motorsController.setMotorsAngleInFixedTimestep(walk.inverseKinematicsPoint([0, 0
 motorsController.setMotorsAngleInFixedTimestep(walk.inverseKinematicsPoint([0, 30, 40], [0, 30, 40]), 0.5, 0.5)
 motorsController.setMotorsAngleInFixedTimestep(walk.inverseKinematicsPoint([0, 0, 40], [0, 0, 40]), 0.5, 0.5)
 
-# More applied version. Press Enter to start or stop walking.
-walking = False
-rightStep = True
-while (1):
-    keys = p.getKeyboardEvents()
-    for k, v in keys.items():
-        if (k == 65309) and (v == 3 or v == 6):  # if enter key is pressed
-            walking = True
-            keys = {}
+# # More applied version. Press Enter to start or stop walking.
+# walking = False
+# rightStep = True
+# while (1):
+#     keys = p.getKeyboardEvents()
+#     for k, v in keys.items():
+#         if (k == 65309) and (v == 3 or v == 6):  # if enter key is pressed
+#             walking = True
+#             keys = {}
 
-    if walking == True:
-        if rightStep == True:
-            for i in range(walkPointNum):
-                motorsController.setMotorsAngleInFixedTimestep(walk.walkAnglesStartRight[i], actionTime, 0)
-            rightStep = False
-        else:
-            for i in range(walkPointNum):
-                motorsController.setMotorsAngleInFixedTimestep(walk.walkAnglesStartLeft[i], actionTime, 0)
-            rightStep = True
+#     if walking == True:
+#         if rightStep == True:
+#             for i in range(walkPointNum):
+#                 motorsController.setMotorsAngleInFixedTimestep(walk.walkAnglesStartRight[i], actionTime, 0)
+#             rightStep = False
+#         else:
+#             for i in range(walkPointNum):
+#                 motorsController.setMotorsAngleInFixedTimestep(walk.walkAnglesStartLeft[i], actionTime, 0)
+#             rightStep = True
 
-        keys = p.getKeyboardEvents()
-        for k, v in keys.items():
-            if (k == 65309) and (v == 3 or v == 6):  # if enter key is pressed
-                walking = False
-                keys = {}
+#         keys = p.getKeyboardEvents()
+#         for k, v in keys.items():
+#             if (k == 65309) and (v == 3 or v == 6):  # if enter key is pressed
+#                 walking = False
+#                 keys = {}
 
-        while (walking):
-            if (rightStep):
-                for i in range(walkPointNum):
-                    motorsController.setMotorsAngleInFixedTimestep(walk.walkAnglesWalkingRight[i], actionTime, 0)
-                rightStep = False
-            else:
-                for i in range(walkPointNum):
-                    motorsController.setMotorsAngleInFixedTimestep(walk.walkAnglesWalkingLeft[i], actionTime, 0)
-                rightStep = True
+#         while (walking):
+#             if (rightStep):
+#                 for i in range(walkPointNum):
+#                     motorsController.setMotorsAngleInFixedTimestep(walk.walkAnglesWalkingRight[i], actionTime, 0)
+#                 rightStep = False
+#             else:
+#                 for i in range(walkPointNum):
+#                     motorsController.setMotorsAngleInFixedTimestep(walk.walkAnglesWalkingLeft[i], actionTime, 0)
+#                 rightStep = True
 
-            keys = p.getKeyboardEvents()
-            for k, v in keys.items():
-                if (k == 65309) and (v == 3 or v == 6):  # if enter key is pressed
-                    walking = False
-                    keys = {}
+#             keys = p.getKeyboardEvents()
+#             for k, v in keys.items():
+#                 if (k == 65309) and (v == 3 or v == 6):  # if enter key is pressed
+#                     walking = False
+#                     keys = {}
 
-        if rightStep == True:
-            for i in range(walkPointNum):
-                motorsController.setMotorsAngleInFixedTimestep(walk.walkAnglesEndRight[i], actionTime, 0)
-            rightStep = False
-        else:
-            for i in range(walkPointNum):
-                motorsController.setMotorsAngleInFixedTimestep(walk.walkAnglesEndLeft[i], actionTime, 0)
-            rightStep = True
-    else:
-        p.stepSimulation()
+#         if rightStep == True:
+#             for i in range(walkPointNum):
+#                 motorsController.setMotorsAngleInFixedTimestep(walk.walkAnglesEndRight[i], actionTime, 0)
+#             rightStep = False
+#         else:
+#             for i in range(walkPointNum):
+#                 motorsController.setMotorsAngleInFixedTimestep(walk.walkAnglesEndLeft[i], actionTime, 0)
+#             rightStep = True
+#     else:
+#         p.stepSimulation()
 
 
 # %%
